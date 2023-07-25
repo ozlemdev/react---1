@@ -1,20 +1,15 @@
 import { click } from "@testing-library/user-event/dist/click";
 import Berkant from "./components/Berkant";
 import Deneme from "./components/Deneme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function App() {
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState("deneme");
 
-  if (status) {
-    return <div>statu durumu true</div>;
-  } else {
-    return (
-      <div>
-        satatu durumu false
-        <button onClick={() => setStatus(!status)}>tıkla</button>
-      </div>
-    );
-  }
+  useEffect(() => {
+    setStatus("deneme2");
+  }, []);
+
+  return <div>{status} </div>;
 }
 
 //* component mantığı */
