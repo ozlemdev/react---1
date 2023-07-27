@@ -1,27 +1,18 @@
-import { click } from "@testing-library/user-event/dist/click";
-import Berkant from "./components/Berkant";
-import Deneme from "./components/Deneme";
-import { useEffect, useRef, useState } from "react";
-function App() {
-  const [status, setStatus] = useState("deneme");
-  const firstRef = useRef(0);
+import { createGlobalStyle } from "styled-components";
 
-  useEffect(() => {
-    setStatus("deneme2");
-  }, []);
+export const GlobalStyles = createGlobalStyle`
 
-  console.log("firstRef", (firstRef.current.value = 5));
-
-  const refFunc = () => {
-    // firstRef.current
-  };
-  return (
-    <>
-      <div>{status}</div>
-      <input onClick={refFunc} ref={firstRef} placeholder="ara" />
-    </>
-  );
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-family: 'Shantell Sans', cursive;
 }
 
-//* component mantığı */
-export default App;
+body{
+    font-size: 1.5rem;
+    background-color: ${({ theme }) => theme.colors.mainColor};
+}
+
+`;
